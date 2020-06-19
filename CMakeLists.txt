@@ -2,7 +2,10 @@
 
 project (cashew)
 
-add_executable (${PROJECT_NAME} "cashew.cpp")
+# CONFIGURE_DEPENDS uses CMake 3.12
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} CONFIGURE_DEPENDS "src/*.cpp")
+
+add_executable (${PROJECT_NAME} ${SOURCES})
 
 # See https://www.glfw.org/docs/3.3/build_guide.html
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
