@@ -17,6 +17,18 @@ bool glfw_window::close_requested() const
 	return res;
 }
 
+void glfw_window::make_context_current()
+{
+	glfwMakeContextCurrent(window);
+	glfw::throw_if_error();
+}
+
+void glfw_window::swap_buffers()
+{
+	glfwSwapBuffers(window);
+	glfw::throw_if_error();
+}
+
 std::pair<int, int> glfw_window::size() const
 {
 	int w, h;

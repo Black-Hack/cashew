@@ -13,6 +13,8 @@ public:
 	glfw_window(int width, int height, const char* title);
 
 	bool close_requested() const;
+	void make_context_current();
+	void swap_buffers();
 
 	std::pair<int, int> size() const;
 	int width() const;
