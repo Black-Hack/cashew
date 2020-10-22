@@ -18,7 +18,10 @@ add_subdirectory(third_party/glfw)
 
 add_subdirectory(third_party/glew)
 
+add_subdirectory(third_party/glm)
+
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE glfw
 	PRIVATE libglew_static
+	PRIVATE glm
 )
