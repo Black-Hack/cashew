@@ -1,10 +1,19 @@
 #pragma once
 
 #include <stdexcept>
-#include <string>
 
-class glfw_error : public std::runtime_error {
+class glfw_error : public std::exception {
 public:
-	explicit glfw_error(const std::string& what_arg);
-	explicit glfw_error(const char* what_arg);
+	glfw_error() = default;
+	glfw_error(int code, const char* description) noexcept :
+		code(code), description(description)
+	{}
+
+	const char* what() const final {
+		return description;
+	}
+
+private:
+	int code;
+	const char* description;
 };

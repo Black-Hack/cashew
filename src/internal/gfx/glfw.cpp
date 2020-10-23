@@ -8,25 +8,19 @@ glfw glfw::singleton;
 
 glfw::glfw()
 {
-	glfwInit();
-	throw_if_error();
-}
+	glfwSetErrorCallback([](int code, const char* description) {
+		throw glfw_error(code, description);
+	});
 
-void glfw::throw_if_error() {
-	const char* description;
-	if (glfwGetError(&description)) {
-		throw glfw_error(description);
-	}
+	glfwInit();
 }
 
 void glfw::update()
 {
 	glfwPollEvents();
-	throw_if_error();
 }
 
 glfw::~glfw()
 {
 	glfwTerminate();
-	throw_if_error();
 }
