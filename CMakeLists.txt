@@ -16,8 +16,6 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(third_party/glfw)
 
-add_subdirectory(third_party/glew)
-
 add_subdirectory(third_party/glm)
 
 set(BGFX_BUILD_TOOLS ON CACHE BOOL "Build bgfx tools." FORCE)
@@ -34,7 +32,6 @@ add_subdirectory(third_party/bgfx)
 
 target_link_libraries(${PROJECT_NAME}
 	PRIVATE glfw
-	PRIVATE libglew_static
 	PRIVATE glm
 	PRIVATE bgfx
 )
