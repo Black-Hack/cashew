@@ -55,6 +55,11 @@ void glfw_window::height(int h)
 	size(width(), h);
 }
 
+GLFWwindow* glfw_window::expose() const
+{
+	return window;
+}
+
 glfw_window::~glfw_window()
 {
 	glfwDestroyWindow(window);

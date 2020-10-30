@@ -24,5 +24,7 @@ public:
 	void width(int w);
 	void height(int h);
 
+	GLFWwindow* expose() const;
+
 	~glfw_window();
 };
